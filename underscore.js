@@ -90,12 +90,10 @@
     if (nativeForEach && obj.forEach === nativeForEach) {
       obj.forEach(iterator, context);
      } else if (_.isArray(obj)) {
-  	console.debug('arr');
       for (var i = 0, l = obj.length; i < l; i++) {
         if (iterator.call(context, obj[i], i, obj) === breaker) return;
       }
     } else {
-		console.debug('obj');
       for (var key in obj) {
         if (hasOwnProperty.call(obj, key)) {
           if (iterator.call(context, obj[key], key, obj) === breaker) return;
